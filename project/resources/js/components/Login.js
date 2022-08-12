@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Chat from './Chat';
 import io from 'socket.io-client';
+import Users from './Users';
 
 const socket = io.connect("http://localhost:3001");
 
@@ -34,23 +35,34 @@ function Login() {
                     value={username}
                     onChange={e => setUsername(e.target.value)}
                     placeholder='username'
+                    onKeyPress = {(event) =>{ 
+                        event.key === "Enter" && send();
+                      }}
                 />
                 &nbsp;
                 <button
                     type="submit"
                     onClick={send}
+                    
                 >
                     Connect
                 </button>
             </div>
+
+           
             </div>
             
         );
     } else {
         return (
-            <>
-                <Chat socket={socket} username={username} />
-            </>
+            <div className='row'>
+                <div className='col-md-6'>
+                    <Chat socket={socket} username={username} />
+                </div>
+                <div className='col-md-6'>
+                    <Users socket={socket} />
+                </div>
+            </div>
         )
     }
 }
