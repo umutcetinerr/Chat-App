@@ -31,7 +31,7 @@ function Chat({ socket, username }) {
   }, []);
 
   return (
-    <div className="chat-window">
+    <div className="chat-window" style={{ marginLeft: '20px' }}>
       <div className='chat-header'>
         <p>Live Chat</p>
       </div>

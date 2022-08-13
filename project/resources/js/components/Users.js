@@ -12,9 +12,9 @@ function Users({ socket }) {
         });
     }, []);
     return (
-        <div className="chat-window">
+        <div className="chat-window" style={{float: 'right',marginRight: '20px'}}>
           <div className='chat-header'>
-            <p>USERS</p>
+            <p style={{ paddingLeft: '125px ' }}>USERS</p>
           </div>
           <div className='chat-body'>
             <ScrollToBottom className='message-container'>
@@ -26,7 +26,6 @@ function Users({ socket }) {
                 </div>
               ))}
             </ScrollToBottom>
-            <h1>{who}</h1>
           </div>
         </div>
     );
